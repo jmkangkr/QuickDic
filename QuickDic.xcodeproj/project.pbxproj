@@ -69,7 +69,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */,
 				CD4D0F51142EDD60009B04F0 /* WordList.h */,
 				CD4D0F52142EDD60009B04F0 /* WordList.m */,
 				CD4D0F5A142EDD78009B04F0 /* SearchHistory.h */,
@@ -80,6 +79,7 @@
 				28216C960DB411BC00E5133A /* FirstViewController.m */,
 				1D3623240D0F684500981E51 /* QuickDicAppDelegate.h */,
 				1D3623250D0F684500981E51 /* QuickDicAppDelegate.m */,
+				CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
