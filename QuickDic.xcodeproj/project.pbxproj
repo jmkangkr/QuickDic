@@ -25,6 +25,7 @@
 		CD4D0F75142EF762009B04F0 /* QuickDic.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */; };
 		CD4D0FB1142EFB84009B04F0 /* Searched.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FAE142EFB84009B04F0 /* Searched.m */; };
 		CD4D0FB2142EFB84009B04F0 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FB0142EFB84009B04F0 /* Word.m */; };
+		CD4D1032142EFD93009B04F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4D1031142EFD93009B04F0 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		CD4D0FAE142EFB84009B04F0 /* Searched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Searched.m; sourceTree = "<group>"; };
 		CD4D0FAF142EFB84009B04F0 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		CD4D0FB0142EFB84009B04F0 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
+		CD4D1031142EFD93009B04F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				CD4D1032142EFD93009B04F0 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +146,7 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
+				CD4D1031142EFD93009B04F0 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
