@@ -22,6 +22,7 @@
 		CD4D0F5E142EDD78009B04F0 /* SearchHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4D0F5C142EDD78009B04F0 /* SearchHistory.xib */; };
 		CD4D0F64142EDD82009B04F0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F62142EDD82009B04F0 /* Settings.m */; };
 		CD4D0F65142EDD82009B04F0 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4D0F63142EDD82009B04F0 /* Settings.xib */; };
+		CD4D0F75142EF762009B04F0 /* QuickDic.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		CD4D0F61142EDD82009B04F0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		CD4D0F62142EDD82009B04F0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		CD4D0F63142EDD82009B04F0 /* Settings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Settings.xib; path = Classes/Settings.xib; sourceTree = "<group>"; };
+		CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = QuickDic.xcdatamodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */,
 				CD4D0F51142EDD60009B04F0 /* WordList.h */,
 				CD4D0F52142EDD60009B04F0 /* WordList.m */,
 				CD4D0F5A142EDD78009B04F0 /* SearchHistory.h */,
@@ -205,6 +208,7 @@
 				CD4D0F54142EDD60009B04F0 /* WordList.m in Sources */,
 				CD4D0F5D142EDD78009B04F0 /* SearchHistory.m in Sources */,
 				CD4D0F64142EDD82009B04F0 /* Settings.m in Sources */,
+				CD4D0F75142EF762009B04F0 /* QuickDic.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
