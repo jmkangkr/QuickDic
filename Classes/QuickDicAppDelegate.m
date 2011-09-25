@@ -18,6 +18,14 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
+- (void)awakeFromNib {
+	for (id vc in tabBarController.viewControllers) {
+		if ([vc respondsToSelector:@selector(setManagedObjectContext:)]) {
+			[vc setManagedObjectContext:self.managedObjectContext];
+		}
+	}
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
@@ -113,16 +121,13 @@
  If the model doesn't already exist, it is created from the application's model.
  */
 - (NSManagedObjectModel *)managedObjectModel {
-    
-    if (managedObjectModel_ != nil) {
-        return managedObjectModel_;
-    }
-    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"NoCoreData" ofType:@"momd"];
-    NSURL *modelURL = [NSURL fileURLWithPath:modelPath];
-    managedObjectModel_ = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
-    return managedObjectModel_;
+	if (managedObjectModel_ != nil) {
+		return managedObjectModel_;
+	}
+	managedObjectModel_ = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+	
+	return managedObjectModel_;
 }
-
 
 /**
  Returns the persistent store coordinator for the application.
@@ -134,7 +139,7 @@
         return persistentStoreCoordinator_;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"NoCoreData.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"QuickDic.sqlite"];
     
     NSError *error = nil;
     persistentStoreCoordinator_ = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
