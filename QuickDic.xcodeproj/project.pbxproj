@@ -23,6 +23,8 @@
 		CD4D0F64142EDD82009B04F0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F62142EDD82009B04F0 /* Settings.m */; };
 		CD4D0F65142EDD82009B04F0 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4D0F63142EDD82009B04F0 /* Settings.xib */; };
 		CD4D0F75142EF762009B04F0 /* QuickDic.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */; };
+		CD4D0FB1142EFB84009B04F0 /* Searched.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FAE142EFB84009B04F0 /* Searched.m */; };
+		CD4D0FB2142EFB84009B04F0 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FB0142EFB84009B04F0 /* Word.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,10 @@
 		CD4D0F62142EDD82009B04F0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		CD4D0F63142EDD82009B04F0 /* Settings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Settings.xib; path = Classes/Settings.xib; sourceTree = "<group>"; };
 		CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = QuickDic.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		CD4D0FAD142EFB84009B04F0 /* Searched.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Searched.h; sourceTree = "<group>"; };
+		CD4D0FAE142EFB84009B04F0 /* Searched.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Searched.m; sourceTree = "<group>"; };
+		CD4D0FAF142EFB84009B04F0 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
+		CD4D0FB0142EFB84009B04F0 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,10 @@
 				28216C960DB411BC00E5133A /* FirstViewController.m */,
 				1D3623240D0F684500981E51 /* QuickDicAppDelegate.h */,
 				1D3623250D0F684500981E51 /* QuickDicAppDelegate.m */,
+				CD4D0FAD142EFB84009B04F0 /* Searched.h */,
+				CD4D0FAE142EFB84009B04F0 /* Searched.m */,
+				CD4D0FAF142EFB84009B04F0 /* Word.h */,
+				CD4D0FB0142EFB84009B04F0 /* Word.m */,
 				CD4D0F74142EF762009B04F0 /* QuickDic.xcdatamodel */,
 			);
 			path = Classes;
@@ -209,6 +219,8 @@
 				CD4D0F5D142EDD78009B04F0 /* SearchHistory.m in Sources */,
 				CD4D0F64142EDD82009B04F0 /* Settings.m in Sources */,
 				CD4D0F75142EF762009B04F0 /* QuickDic.xcdatamodel in Sources */,
+				CD4D0FB1142EFB84009B04F0 /* Searched.m in Sources */,
+				CD4D0FB2142EFB84009B04F0 /* Word.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
