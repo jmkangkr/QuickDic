@@ -16,6 +16,12 @@
 		2840D7CE1179279E00D7F93C /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2840D7CD1179279E00D7F93C /* FirstView.xib */; };
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD73870D9D96C1002E5188 /* MainWindow.xib */; };
+		CD4D0F54142EDD60009B04F0 /* WordList.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F52142EDD60009B04F0 /* WordList.m */; };
+		CD4D0F55142EDD60009B04F0 /* WordList.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4D0F53142EDD60009B04F0 /* WordList.xib */; };
+		CD4D0F5D142EDD78009B04F0 /* SearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F5B142EDD78009B04F0 /* SearchHistory.m */; };
+		CD4D0F5E142EDD78009B04F0 /* SearchHistory.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4D0F5C142EDD78009B04F0 /* SearchHistory.xib */; };
+		CD4D0F64142EDD82009B04F0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0F62142EDD82009B04F0 /* Settings.m */; };
+		CD4D0F65142EDD82009B04F0 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4D0F63142EDD82009B04F0 /* Settings.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,15 @@
 		28AD73870D9D96C1002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* QuickDic-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QuickDic-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		CD4D0F51142EDD60009B04F0 /* WordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordList.h; sourceTree = "<group>"; };
+		CD4D0F52142EDD60009B04F0 /* WordList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordList.m; sourceTree = "<group>"; };
+		CD4D0F53142EDD60009B04F0 /* WordList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WordList.xib; path = Classes/WordList.xib; sourceTree = "<group>"; };
+		CD4D0F5A142EDD78009B04F0 /* SearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistory.h; sourceTree = "<group>"; };
+		CD4D0F5B142EDD78009B04F0 /* SearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistory.m; sourceTree = "<group>"; };
+		CD4D0F5C142EDD78009B04F0 /* SearchHistory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchHistory.xib; path = Classes/SearchHistory.xib; sourceTree = "<group>"; };
+		CD4D0F61142EDD82009B04F0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		CD4D0F62142EDD82009B04F0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		CD4D0F63142EDD82009B04F0 /* Settings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Settings.xib; path = Classes/Settings.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +67,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD4D0F51142EDD60009B04F0 /* WordList.h */,
+				CD4D0F52142EDD60009B04F0 /* WordList.m */,
+				CD4D0F5A142EDD78009B04F0 /* SearchHistory.h */,
+				CD4D0F5B142EDD78009B04F0 /* SearchHistory.m */,
+				CD4D0F61142EDD82009B04F0 /* Settings.h */,
+				CD4D0F62142EDD82009B04F0 /* Settings.m */,
 				28216C950DB411BC00E5133A /* FirstViewController.h */,
 				28216C960DB411BC00E5133A /* FirstViewController.m */,
 				1D3623240D0F684500981E51 /* QuickDicAppDelegate.h */,
@@ -92,6 +113,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD4D0F53142EDD60009B04F0 /* WordList.xib */,
+				CD4D0F5C142EDD78009B04F0 /* SearchHistory.xib */,
+				CD4D0F63142EDD82009B04F0 /* Settings.xib */,
 				2840D7CD1179279E00D7F93C /* FirstView.xib */,
 				282CCBFD0DB6C98000C4EA27 /* SecondView.xib */,
 				28AD73870D9D96C1002E5188 /* MainWindow.xib */,
@@ -162,6 +186,9 @@
 				28AD73880D9D96C1002E5188 /* MainWindow.xib in Resources */,
 				282CCBFE0DB6C98000C4EA27 /* SecondView.xib in Resources */,
 				2840D7CE1179279E00D7F93C /* FirstView.xib in Resources */,
+				CD4D0F55142EDD60009B04F0 /* WordList.xib in Resources */,
+				CD4D0F5E142EDD78009B04F0 /* SearchHistory.xib in Resources */,
+				CD4D0F65142EDD82009B04F0 /* Settings.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +202,9 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* QuickDicAppDelegate.m in Sources */,
 				28216C970DB411BC00E5133A /* FirstViewController.m in Sources */,
+				CD4D0F54142EDD60009B04F0 /* WordList.m in Sources */,
+				CD4D0F5D142EDD78009B04F0 /* SearchHistory.m in Sources */,
+				CD4D0F64142EDD82009B04F0 /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
