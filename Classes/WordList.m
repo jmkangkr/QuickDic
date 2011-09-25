@@ -11,6 +11,7 @@
 
 @implementation WordList
 
+@synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
 
 #pragma mark -
 #pragma mark View lifecycle
