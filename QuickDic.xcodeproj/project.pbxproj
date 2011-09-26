@@ -24,6 +24,7 @@
 		CD4D0FB2142EFB84009B04F0 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FB0142EFB84009B04F0 /* Word.m */; };
 		CD4D1032142EFD93009B04F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4D1031142EFD93009B04F0 /* CoreData.framework */; };
 		CD86F21114307C7900D3DB1B /* FetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */; };
+		CD86F23A1430837A00D3DB1B /* wordlist.60.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD86F2391430837A00D3DB1B /* wordlist.60.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		CD4D1031142EFD93009B04F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CD86F20F14307C7900D3DB1B /* FetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsTableViewController.h; sourceTree = "<group>"; };
 		CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsTableViewController.m; sourceTree = "<group>"; };
+		CD86F2391430837A00D3DB1B /* wordlist.60.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = wordlist.60.txt; path = raw/wordlist.60.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD86F2391430837A00D3DB1B /* wordlist.60.txt */,
 				CD4D0F53142EDD60009B04F0 /* WordList.xib */,
 				CD4D0F5C142EDD78009B04F0 /* SearchHistory.xib */,
 				CD4D0F63142EDD82009B04F0 /* Settings.xib */,
@@ -198,6 +201,7 @@
 				CD4D0F55142EDD60009B04F0 /* WordList.xib in Resources */,
 				CD4D0F5E142EDD78009B04F0 /* SearchHistory.xib in Resources */,
 				CD4D0F65142EDD82009B04F0 /* Settings.xib in Resources */,
+				CD86F23A1430837A00D3DB1B /* wordlist.60.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
