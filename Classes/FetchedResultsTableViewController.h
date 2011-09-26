@@ -12,7 +12,7 @@
 @interface FetchedResultsTableViewController : UITableViewController
 <NSFetchedResultsControllerDelegate> {
 	
-@private
+@protected
     NSFetchedResultsController *fetchedResultsController_;
     NSManagedObjectContext *managedObjectContext_;
 }
