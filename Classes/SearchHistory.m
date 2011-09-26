@@ -138,6 +138,46 @@
     */
 }
 
+#pragma mark -
+#pragma mark Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController {
+	
+    if (fetchedResultsController_ != nil) {
+        return fetchedResultsController_;
+    }
+    
+	NSFetchRequest*			fetchRequest	= 
+								[[NSFetchRequest alloc] init];
+	NSEntityDescription*	entity			= 
+								[NSEntityDescription entityForName:@"Searched" 
+											inManagedObjectContext:self.managedObjectContext];
+	[fetchRequest setEntity:entity];
+	
+	
+	NSSortDescriptor*		dateDescriptor	= 
+								[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+	NSArray*				sortDescriptors	= 
+								[[NSArray alloc] initWithObjects:dateDescriptor, nil];
+	[fetchRequest setSortDescriptors:sortDescriptors];
+	
+	NSFetchedResultsController*	aFetchedResultsController = 
+				[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
+													managedObjectContext:self.managedObjectContext 
+													  sectionNameKeyPath:nil
+															   cacheName:nil];
+	
+	self.fetchedResultsController		= aFetchedResultsController;
+	aFetchedResultsController.delegate	= self;
+	
+	[aFetchedResultsController release];
+	[fetchRequest release];
+	[dateDescriptor release];
+	[sortDescriptors release];
+	
+	return fetchedResultsController_;
+}
+
 
 #pragma mark -
 #pragma mark Memory management
