@@ -23,6 +23,7 @@
 		CD4D0FB1142EFB84009B04F0 /* Searched.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FAE142EFB84009B04F0 /* Searched.m */; };
 		CD4D0FB2142EFB84009B04F0 /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D0FB0142EFB84009B04F0 /* Word.m */; };
 		CD4D1032142EFD93009B04F0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4D1031142EFD93009B04F0 /* CoreData.framework */; };
+		CD86F21114307C7900D3DB1B /* FetchedResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		CD4D0FAF142EFB84009B04F0 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		CD4D0FB0142EFB84009B04F0 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		CD4D1031142EFD93009B04F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CD86F20F14307C7900D3DB1B /* FetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsTableViewController.h; sourceTree = "<group>"; };
+		CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD86F20F14307C7900D3DB1B /* FetchedResultsTableViewController.h */,
+				CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */,
 				CD4D0F51142EDD60009B04F0 /* WordList.h */,
 				CD4D0F52142EDD60009B04F0 /* WordList.m */,
 				CD4D0F5A142EDD78009B04F0 /* SearchHistory.h */,
@@ -211,6 +216,7 @@
 				CD4D0F75142EF762009B04F0 /* QuickDic.xcdatamodel in Sources */,
 				CD4D0FB1142EFB84009B04F0 /* Searched.m in Sources */,
 				CD4D0FB2142EFB84009B04F0 /* Word.m in Sources */,
+				CD86F21114307C7900D3DB1B /* FetchedResultsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

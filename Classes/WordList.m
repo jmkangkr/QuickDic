@@ -11,8 +11,6 @@
 
 @implementation WordList
 
-@synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
-
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -56,18 +54,19 @@
 
 #pragma mark -
 #pragma mark Table view data source
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 0;//number of sections;
 }
+*/
 
-
+/*
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return 0;//<#number of rows in section#>;
 }
-
+*/
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

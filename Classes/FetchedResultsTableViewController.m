@@ -1,15 +1,32 @@
 //
-//  SearchHistory.m
+//  FetchedResultsTableViewController.m
 //  QuickDic
 //
-//  Created by Donut on 11. 9. 25..
+//  Created by Donut on 11. 9. 26..
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SearchHistory.h"
+#import "FetchedResultsTableViewController.h"
 
 
-@implementation SearchHistory
+@implementation FetchedResultsTableViewController
+
+@synthesize fetchedResultsController=fetchedResultsController_, managedObjectContext=managedObjectContext_;
+
+#pragma mark -
+#pragma mark Initialization
+
+/*
+- (id)initWithStyle:(UITableViewStyle)style {
+    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization.
+    }
+    return self;
+}
+*/
+
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -54,20 +71,22 @@
 
 #pragma mark -
 #pragma mark Table view data source
-/*
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;//<#number of sections#>;
+    return [[self.fetchedResultsController sections] count];
 }
-*/
 
-/*
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;//<#number of rows in section#>;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] 
+													objectAtIndex:section];
+	
+    return [sectionInfo numberOfObjects];
 }
-*/
 
+/*
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -82,7 +101,7 @@
     
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -126,18 +145,18 @@
 
 #pragma mark -
 #pragma mark Table view delegate
-
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-    /*
+    / *
     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
+     // ...
+     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
     [detailViewController release];
-    */
+    * /
 }
-
+*/
 
 #pragma mark -
 #pragma mark Memory management
