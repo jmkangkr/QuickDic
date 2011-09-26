@@ -7,7 +7,7 @@
 //
 
 #import "QuickDicAppDelegate.h"
-
+#import "FetchedResultsTableViewController.h"
 
 @implementation QuickDicAppDelegate
 
@@ -21,7 +21,8 @@
 - (void)awakeFromNib {
 	for (id vc in tabBarController.viewControllers) {
 		if ([vc respondsToSelector:@selector(setManagedObjectContext:)]) {
-			[vc setManagedObjectContext:self.managedObjectContext];
+			FetchedResultsTableViewController*	controller = (FetchedResultsTableViewController*)vc;
+			[controller setManagedObjectContext:self.managedObjectContext];
 		}
 	}
 }
