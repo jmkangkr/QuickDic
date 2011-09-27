@@ -8,20 +8,47 @@
 
 #import "WordList.h"
 
+@interface WordList ()
+- (unsigned int)numberOfWordsInDictionary;
+- (BOOL)initializeDictionaryDatabase;
+- (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawFile;
+@end
 
 @implementation WordList
 
 #pragma mark -
+#pragma mark WordList
+- (unsigned int)numberOfWordsInDictionary {
+	int wordCount = 0;
+	
+	for(id <NSFetchedResultsSectionInfo> si in [self.fetchedResultsController sections]) {
+		wordCount += [si numberOfObjects];
+	}
+	
+	return wordCount;
+}
+
+- (BOOL)initializeDictionaryDatabase {
+	return [self initializeDictionaryDatabaseWithRawFile:nil];
+}
+
+- (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawFile {
+	return FALSE;
+}
+
+#pragma mark -
 #pragma mark View lifecycle
 
-/*
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	[super viewDidLoad];
+	
+	
+	
+	if(0 == [self numberOfWordsInDictionary]) {
+		[self initializeDictionaryDatabase];
+	}
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
