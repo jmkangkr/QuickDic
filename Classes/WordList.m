@@ -12,6 +12,8 @@
 - (unsigned int)numberOfWordsInDictionary;
 - (BOOL)initializeDictionaryDatabase;
 - (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawFile;
+
+- (void)insertNewWord:(NSString*)word;
 @end
 
 @implementation WordList
@@ -29,12 +31,42 @@
 }
 
 - (BOOL)initializeDictionaryDatabase {
-	return [self initializeDictionaryDatabaseWithRawFile:nil];
+	NSString* rawFile = [[NSBundle mainBundle] pathForResource:@"wordlist.60" ofType:@"txt"];
+	
+	return [self initializeDictionaryDatabaseWithRawFile:rawFile];
 }
 
-- (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawFile {
-	return FALSE;
+- (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawDictionaryFilePath {
+	FILE*	rawFile = NULL;
+	char	line[512];
+	char*	token;
+	int		count;
+	
+	rawFile = fopen(rawDictionaryFilePath.UTF8String, "r");
+	
+	if(rawFile == NULL) {
+		return FALSE;
+	}
+	
+	count = 0;
+	do {
+		fgets(line, 512, rawFile);
+		token = strtok(line, "\t\n\r ");
+		if(token != NULL && strlen(token) > 1) {
+			NSLog(@"%s", token);
+			[self insertNewWord:[NSString stringWithUTF8String:token]];
+		}
+	} while (!feof(rawFile));
+	
+	fclose(rawFile);
+	
+	return TRUE;
 }
+
+
+- (void)insertNewWord:(NSString*) word {
+}
+
 
 #pragma mark -
 #pragma mark View lifecycle
