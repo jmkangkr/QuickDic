@@ -17,9 +17,15 @@
 - (void)insertNewWord:(NSString*)word;
 
 - (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
+
+- (void)filterContentForSearchText:(NSString*)aSearchText scope:(NSString*)scope;
+
 @end
 
 @implementation WordList
+
+@synthesize		searchPredicate;
+@synthesize		searchText;
 
 #pragma mark -
 #pragma mark WordList
@@ -223,6 +229,46 @@ END:
 }
 */
 
+#pragma mark -
+#pragma mark Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)aSearchText scope:(NSString*)scope
+{
+	NSUInteger length = [aSearchText length];
+	
+	if(length <= 0)
+		return;
+	
+	NSMutableString* regex = [[NSMutableString alloc] initWithCapacity:(length * 3 + 2 + 2)];
+	
+	[regex appendFormat:@"^%c", [aSearchText characterAtIndex:0]];
+	for(NSUInteger i = 1; i < length; i++ ) {
+		[regex appendFormat:@".*%c", [aSearchText characterAtIndex:i]];
+	}
+	[regex appendFormat:@".*$"];
+	
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name MATCHES[cd] %@", regex];
+	
+	self.searchPredicate = predicate;
+	self.searchText = aSearchText;
+	
+	[regex release];
+}
+
+#pragma mark -
+#pragma mark UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController*)controller shouldReloadTableForSearchString:(NSString*)searchString
+{
+    [self filterContentForSearchText:searchString 
+							   scope:[[self.searchDisplayController.searchBar scopeButtonTitles] 
+									  objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+	
+	self.fetchedResultsController = nil;
+	
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
 
 #pragma mark -
 #pragma mark Table view delegate
@@ -261,6 +307,8 @@ END:
 								[[NSArray alloc] initWithObjects:nameDescriptor, nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
+	[fetchRequest setPredicate:self.searchPredicate];
+	
 	NSFetchedResultsController*	aFetchedResultsController = 
 				[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest 
 													managedObjectContext:self.managedObjectContext 
@@ -295,12 +343,15 @@ END:
 }
 
 - (void)viewDidUnload {
-    // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
-    // For example: self.myOutlet = nil;
+	self.searchPredicate = nil;
+	self.searchText = nil;
 }
 
 
 - (void)dealloc {
+	[self.searchPredicate release];
+	[self.searchText release];
+	
     [super dealloc];
 }
 

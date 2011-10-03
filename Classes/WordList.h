@@ -11,7 +11,10 @@
 #import "FetchedResultsTableViewController.h"
 
 @interface WordList : FetchedResultsTableViewController {
-
+	NSPredicate*		searchPredicate;
+	NSString*			searchText;
 }
 
+@property (nonatomic, retain) NSPredicate*			searchPredicate;
+@property (nonatomic, retain) NSString*				searchText;
 @end
