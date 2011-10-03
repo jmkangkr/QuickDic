@@ -15,6 +15,8 @@
 - (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawFile;
 
 - (void)insertNewWord:(NSString*)word;
+
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
 @end
 
 @implementation WordList
@@ -99,6 +101,10 @@ END:
     }
 }
 
+- (void)configureCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath {
+    NSManagedObject* managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -163,17 +169,16 @@ END:
 }
 */
 
-// Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"WordCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+	[self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
