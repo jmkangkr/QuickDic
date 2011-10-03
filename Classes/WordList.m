@@ -221,7 +221,7 @@ END:
 	NSFetchRequest*			fetchRequest	= 
 								[[NSFetchRequest alloc] init];
 	NSEntityDescription*	entity			= 
-								[NSEntityDescription entityForName:@"Searched" 
+								[NSEntityDescription entityForName:@"Word" 
 											inManagedObjectContext:self.managedObjectContext];
 	[fetchRequest setEntity:entity];
 	
