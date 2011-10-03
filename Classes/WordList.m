@@ -37,30 +37,41 @@
 }
 
 - (BOOL)initializeDictionaryDatabaseWithRawFile:(NSString*)rawDictionaryFilePath {
-	FILE*	rawFile = NULL;
-	char	line[512];
-	char*	token;
-	int		count;
+	static const int	MAX_WORD = 512;
+	FILE*				file;
+	char				line[MAX_WORD];
+	char*				token;
+	BOOL				success = TRUE;
 	
-	rawFile = fopen(rawDictionaryFilePath.UTF8String, "r");
+	file = fopen(rawDictionaryFilePath.UTF8String, "r");
 	
-	if(rawFile == NULL) {
-		return FALSE;
+	if(file == NULL) {
+		success = FALSE;
+		goto END;
 	}
 	
-	count = 0;
-	do {
-		fgets(line, 512, rawFile);
-		token = strtok(line, "\t\n\r ");
-		if(token != NULL && strlen(token) > 1) {
-			NSLog(@"%s", token);
-			[self insertNewWord:[NSString stringWithUTF8String:token]];
+	while (TRUE) {
+		char*		acquired;
+		
+		acquired = fgets(line, MAX_WORD, file);
+		
+		if(acquired != NULL) {
+			token = strtok(line, "\t\n\r ");
+			if(token != NULL && strlen(token) > 1) {
+				NSLog(@"%s", token);
+				[self insertNewWord:[NSString stringWithUTF8String:token]];
+			}
+		} else {
+			if (ferror(file)) {
+				success = FALSE;
+			}
+			goto END;
 		}
-	} while (!feof(rawFile));
+	}
 	
-	fclose(rawFile);
-	
-	return TRUE;
+END:
+	fclose(file);
+	return success;
 }
 
 
