@@ -43,6 +43,9 @@
 	char				line[MAX_WORD];
 	char*				token;
 	BOOL				success = TRUE;
+#if defined(DEBUG)
+	int					count = 0;
+#endif
 	
 	file = fopen(rawDictionaryFilePath.UTF8String, "r");
 	
@@ -59,6 +62,9 @@
 		if(acquired != NULL) {
 			token = strtok(line, "\t\n\r ");
 			if(token != NULL && strlen(token) > 1) {
+#if defined(DEBUG)
+				count += 1;
+#endif
 				VLog(@"%s", token);
 				[self insertNewWord:[NSString stringWithUTF8String:token]];
 			}
@@ -71,6 +77,9 @@
 	}
 	
 END:
+#if defined(DEBUG)
+	VLog(@"%d word entries are created.", count);
+#endif
 	fclose(file);
 	return success;
 }
@@ -86,9 +95,13 @@ END:
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	unsigned int wordCount;
 	
+	wordCount = [self numberOfWordsInDictionary];
 	
-	if(0 == [self numberOfWordsInDictionary]) {
+	VLog(@"Number of words in the dictionary: %d", wordCount);
+	
+	if(0 == wordCount) {
 		[self initializeDictionaryDatabase];
 	}
 }
