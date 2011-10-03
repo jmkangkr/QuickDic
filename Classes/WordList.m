@@ -7,6 +7,7 @@
 //
 
 #import "WordList.h"
+#import "log.h"
 
 @interface WordList ()
 - (unsigned int)numberOfWordsInDictionary;
@@ -58,7 +59,7 @@
 		if(acquired != NULL) {
 			token = strtok(line, "\t\n\r ");
 			if(token != NULL && strlen(token) > 1) {
-				NSLog(@"%s", token);
+				VLog(@"%s", token);
 				[self insertNewWord:[NSString stringWithUTF8String:token]];
 			}
 		} else {

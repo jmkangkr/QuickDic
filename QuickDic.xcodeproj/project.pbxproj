@@ -53,6 +53,7 @@
 		CD4D0FAF142EFB84009B04F0 /* Word.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
 		CD4D0FB0142EFB84009B04F0 /* Word.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		CD4D1031142EFD93009B04F0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CD869E6B14394430001CE0A9 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = SOURCE_ROOT; };
 		CD86F20F14307C7900D3DB1B /* FetchedResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsTableViewController.h; sourceTree = "<group>"; };
 		CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsTableViewController.m; sourceTree = "<group>"; };
 		CD86F2391430837A00D3DB1B /* wordlist.60.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = wordlist.60.txt; path = raw/wordlist.60.txt; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD869E6B14394430001CE0A9 /* log.h */,
 				CD86F20F14307C7900D3DB1B /* FetchedResultsTableViewController.h */,
 				CD86F21014307C7900D3DB1B /* FetchedResultsTableViewController.m */,
 				CD4D0F51142EDD60009B04F0 /* WordList.h */,
@@ -260,8 +262,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"New Setting" = "";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
