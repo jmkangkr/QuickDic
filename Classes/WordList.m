@@ -86,6 +86,17 @@ END:
 
 
 - (void)insertNewWord:(NSString*) word {
+	NSManagedObjectContext* context = [self.fetchedResultsController managedObjectContext];
+    NSManagedObject* newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Word" inManagedObjectContext:context];
+
+    [newManagedObject setValue:word forKey:@"name"];
+	[newManagedObject setValue:nil forKey:@"searched"];
+
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 
 
