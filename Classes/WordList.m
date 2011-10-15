@@ -24,8 +24,25 @@
 
 @implementation WordList
 
-@synthesize		searchPredicate;
-@synthesize		searchText;
+@synthesize	searchPredicate;
+@synthesize	searchText;
+
+@synthesize	searchedWords		= searchedWords_;
+
+@synthesize fetchedResultsController	= fetchedResultsController_;
+@synthesize managedObjectContext		= managedObjectContext_;
+
+#pragma mark -
+#pragma mark searched Words
+- (NSArray*)searchedWords {
+	if(searchedWords_ != nil) {
+		return searchedWords_;
+	}
+	
+	self.searchedWords = [self.fetchedResultsController fetchedObjects];
+	
+	return searchedWords_;
+}
 
 #pragma mark -
 #pragma mark WordList
@@ -161,19 +178,13 @@ END:
 
 #pragma mark -
 #pragma mark Table view data source
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;//number of sections;
+	return 1;
 }
-*/
 
-/*
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;//<#number of rows in section#>;
+	return [self.searchedWords count];
 }
-*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -265,6 +276,7 @@ END:
 									  objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
 	
 	self.fetchedResultsController = nil;
+	self.searchedWords = nil;
 	
     // Return YES to cause the search result table view to be reloaded.
     return YES;
@@ -345,12 +357,18 @@ END:
 - (void)viewDidUnload {
 	self.searchPredicate = nil;
 	self.searchText = nil;
+	
+	self.fetchedResultsController = nil;
+	self.managedObjectContext = nil;
 }
 
 
 - (void)dealloc {
 	[self.searchPredicate release];
 	[self.searchText release];
+	
+	[fetchedResultsController_ release];
+	[managedObjectContext_ release];
 	
     [super dealloc];
 }

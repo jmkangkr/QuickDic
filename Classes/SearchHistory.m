@@ -11,6 +11,9 @@
 
 @implementation SearchHistory
 
+@synthesize fetchedResultsController	= fetchedResultsController_;
+@synthesize managedObjectContext		= managedObjectContext_;
+
 #pragma mark -
 #pragma mark View lifecycle
 
@@ -54,19 +57,17 @@
 
 #pragma mark -
 #pragma mark Table view data source
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;//<#number of sections#>;
+	return [[self.fetchedResultsController sections] count];
 }
-*/
 
-/*
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;//<#number of rows in section#>;
+	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] 
+													objectAtIndex:section];
+
+	return [sectionInfo numberOfObjects];
+	
 }
-*/
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -198,10 +199,16 @@
 - (void)viewDidUnload {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+	
+	self.fetchedResultsController = nil;
+	self.managedObjectContext = nil;
 }
 
 
 - (void)dealloc {
+	[fetchedResultsController_ release];
+	[managedObjectContext_ release];
+	
     [super dealloc];
 }
 
