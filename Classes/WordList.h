@@ -8,11 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "FetchedResultsTableViewController.h"
 
-@interface WordList : FetchedResultsTableViewController {
+@interface WordList : UITableViewController 
+<NSFetchedResultsControllerDelegate> {
 	NSPredicate*		searchPredicate;
+	
+@private
+	NSArray*			searchedWords_;
+
+@private
+    NSFetchedResultsController*	fetchedResultsController_;
+    NSManagedObjectContext*		managedObjectContext_;
 }
 
 @property (nonatomic, retain) NSPredicate*			searchPredicate;
+
+@property (nonatomic, retain) NSArray*				searchedWords;
+
+@property (nonatomic, retain) NSManagedObjectContext*		managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController*	fetchedResultsController;
+
 @end

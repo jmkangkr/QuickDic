@@ -24,24 +24,8 @@
 
 @implementation WordList
 
-@synthesize	searchPredicate;
-
-@synthesize	searchedWords		= searchedWords_;
-
-@synthesize fetchedResultsController	= fetchedResultsController_;
-@synthesize managedObjectContext		= managedObjectContext_;
-
-#pragma mark -
-#pragma mark searched Words
-- (NSArray*)searchedWords {
-	if(searchedWords_ != nil) {
-		return searchedWords_;
-	}
-	
-	self.searchedWords = [self.fetchedResultsController fetchedObjects];
-	
-	return searchedWords_;
-}
+@synthesize		searchPredicate;
+@synthesize		searchText;
 
 #pragma mark -
 #pragma mark WordList
@@ -177,13 +161,19 @@ END:
 
 #pragma mark -
 #pragma mark Table view data source
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 1;
+    // Return the number of sections.
+    return 0;//number of sections;
 }
+*/
 
+/*
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [self.searchedWords count];
+    // Return the number of rows in the section.
+    return 0;//<#number of rows in section#>;
 }
+*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -260,6 +250,7 @@ END:
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name MATCHES[cd] %@", regex];
 	
 	self.searchPredicate = predicate;
+	self.searchText = aSearchText;
 	
 	[regex release];
 }
@@ -274,7 +265,6 @@ END:
 									  objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
 	
 	self.fetchedResultsController = nil;
-	self.searchedWords = nil;
 	
     // Return YES to cause the search result table view to be reloaded.
     return YES;
@@ -309,12 +299,62 @@ END:
 								[NSEntityDescription entityForName:@"Word" 
 											inManagedObjectContext:self.managedObjectContext];
 	[fetchRequest setEntity:entity];
-	
-	
+
+	NSComparator finderSort = ^(id string1, id string2) {
+		/*
+		NSUInteger	length = MIN([string1 length], [string2 length]);
+		NSRange		string1Range = NSMakeRange(0, length);
+		
+		NSLog(@"string1: %@", (NSString*)string1);
+		NSLog(@"string2: %@", (NSString*)string2);
+		
+		if (NSOrderedSame == [string1 compare:string2 options:NSCaseInsensitiveSearch range:string1Range]) {
+			return NSOrderedDescending;
+		}
+		
+		return NSOrderedSame;
+		 */
+		/*
+		NSComparisonResult result = NSOrderedSame;
+		
+		switch([string1 compare:string2]) {
+			case NSOrderedAscending:
+				result = NSOrderedDescending;
+				break;
+			case NSOrderedDescending:
+				result = NSOrderedAscending;
+				break;
+		}
+		*/
+		NSLog(@"In sort block!");
+		NSComparisonResult result = NSOrderedSame;
+		unsigned int x = ((unsigned int)rand()) % 3;
+		switch(x) {
+			case 0:
+				result = NSOrderedSame;
+				x = 245 / x;
+				break;
+			case 1:
+				result = NSOrderedDescending;
+				break;
+			case 2:
+				result = NSOrderedAscending;
+				break;
+		}
+		return result;
+	};
+
+	NSSortDescriptor*		exactMatchDescriptor = 
+								[[NSSortDescriptor alloc] initWithKey:@"name"  ascending:YES
+														   comparator:finderSort];
+	/*
 	NSSortDescriptor*		nameDescriptor	= 
 								[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+	 */
 	NSArray*				sortDescriptors	= 
-								[[NSArray alloc] initWithObjects:nameDescriptor, nil];
+								[[NSArray alloc] initWithObjects:exactMatchDescriptor,
+																 /*nameDescriptor, */
+																 nil];
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
 	[fetchRequest setPredicate:self.searchPredicate];
@@ -330,7 +370,8 @@ END:
 	
 	[aFetchedResultsController release];
 	[fetchRequest release];
-	[nameDescriptor release];
+	[exactMatchDescriptor release];
+	//[nameDescriptor release];
 	[sortDescriptors release];
 	
 	NSError *error = nil;
@@ -339,6 +380,7 @@ END:
         abort();
     }
 	
+	//NSLog(@"count: %s", [self numberOfWordsInDictionary]);
 	return fetchedResultsController_;
 }
 
@@ -354,17 +396,13 @@ END:
 
 - (void)viewDidUnload {
 	self.searchPredicate = nil;
-	
-	self.fetchedResultsController = nil;
-	self.managedObjectContext = nil;
+	self.searchText = nil;
 }
 
 
 - (void)dealloc {
 	[self.searchPredicate release];
-	
-	[fetchedResultsController_ release];
-	[managedObjectContext_ release];
+	[self.searchText release];
 	
     [super dealloc];
 }
