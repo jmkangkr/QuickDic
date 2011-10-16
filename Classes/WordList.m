@@ -25,7 +25,6 @@
 @implementation WordList
 
 @synthesize		searchPredicate;
-@synthesize		searchText;
 
 #pragma mark -
 #pragma mark WordList
@@ -250,7 +249,6 @@ END:
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name MATCHES[cd] %@", regex];
 	
 	self.searchPredicate = predicate;
-	self.searchText = aSearchText;
 	
 	[regex release];
 }
@@ -344,13 +342,11 @@ END:
 
 - (void)viewDidUnload {
 	self.searchPredicate = nil;
-	self.searchText = nil;
 }
 
 
 - (void)dealloc {
 	[self.searchPredicate release];
-	[self.searchText release];
 	
     [super dealloc];
 }
