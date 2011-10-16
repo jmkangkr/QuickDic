@@ -39,7 +39,23 @@
 		return searchedWords_;
 	}
 	
-	self.searchedWords = [self.fetchedResultsController fetchedObjects];
+	NSComparator customSort = ^(id string1, id string2) {
+
+		NSUInteger      length = MIN([string1 length], [string2 length]);
+		NSRange         string1Range = NSMakeRange(0, length);
+
+		NSLog(@"string1: %@", (NSString*)string1);
+		NSLog(@"string2: %@", (NSString*)string2);
+
+		if (NSOrderedSame == [string1 compare:string2 options:NSCaseInsensitiveSearch range:string1Range]) {
+			return NSOrderedDescending;
+		}
+
+		return NSOrderedSame;
+	};
+
+	NSArray* ar = [[self.fetchedResultsController fetchedObjects] copyWithZone:nil];
+	self.searchedWords = [ar sortedArrayUsingComparator:customSort];
 	
 	return searchedWords_;
 }
