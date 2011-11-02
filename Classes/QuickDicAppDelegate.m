@@ -13,12 +13,18 @@
 @synthesize window;
 @synthesize tabBarController;
 
+@protocol UITableViewControllerWithManagedContext<NSObject>
+
+@optional
+- (void)setManagedObjectContext:(NSManagedObjectContext*)context;
+
+@end
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)awakeFromNib {
-	for (id vc in tabBarController.viewControllers) {
+	for (id <UITableViewControllerWithManagedContext> vc in tabBarController.viewControllers) {
 		if ([vc respondsToSelector:@selector(setManagedObjectContext:)]) {
 			[vc setManagedObjectContext:self.managedObjectContext];
 		}
